@@ -1,5 +1,5 @@
 import pandas as pd
-import openbb
+from openbb_terminal.sdk import openbb
 import riskfolio as rp
 
 # Get new highs
