@@ -1,3 +1,0 @@
-yfinance
-plotly
-streamlit_autorefresh
