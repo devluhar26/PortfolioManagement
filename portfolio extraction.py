@@ -29,7 +29,7 @@ class TradingDataHandler:
 
             for instrument in data["instruments"]:
                 ticker = instrument["ticker"]
-                stock_name = ticker[:-3]  # Remove the last 3 characters (e.g., ".L")
+                stock_name = ticker[:-3]
                 print(f"{ticker} is valid on Trading 212 with {instrument['ownedQuantity']} owned quantity and a percentage of {instrument['currentShare'] * 100:.2f}%.")
                 print(f"Additional data: {instrument}")
                 stock_names.append(stock_name)
