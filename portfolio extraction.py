@@ -60,3 +60,4 @@ if __name__ == "__main__":
         print(f"{trading_212_ticker} is valid on Trading 212.")
 
     trading_data_handler.download_stock_data(stock_names)
+
