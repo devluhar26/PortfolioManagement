@@ -5,20 +5,7 @@ headers = {
 }
 
 
-output={'APH': 21.45,
- 'DBOEY': 11.27,
- 'SSREY': 9.81,
- 'ACGL': 9.32,
- 'CICOF': 8.55,
- 'KSPI': 5.67,
- 'MKL': 5.2,
- 'EVVTY': 5.08,
- 'MOH': 4.93,
- 'UTHR': 4.39,
- 'SMCI': 3.98,
- 'GMAB': 3.77,
- 'SN': 3.34,
- 'NBIX': 3.23}
+output=[['APH', 21.45],['DBOEY', 11.27],['SSREY', 9.81],['ACGL', 9.32],['CICOF', 8.55]]
 url = "https://demo.trading212.com/api/v0/equity/pies"
 response = requests.get(url, headers=headers)
 response.raise_for_status()
