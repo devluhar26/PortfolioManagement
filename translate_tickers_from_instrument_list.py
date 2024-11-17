@@ -37,8 +37,10 @@ class TickerTranslator:
                     print(f"Exact match found: {item}")
                     return item["ticker"]
                 matches.append(item)
-
-        if matches:
+        if len(matches)==1:
+            print(f"Single match found: {matches[0]}")
+            return matches[0]["ticker"]
+        if len(matches)>1:
             return self._resolve_multiple_matches(stock, matches)
         else:
             print(f"No match found for {stock}")
