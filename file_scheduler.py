@@ -7,7 +7,7 @@ def timer():
     return 0
 
 def run_file(filename):
-        file_path = os.path.join("test_strategies", filename)
+        file_path = os.path.join("test_strategies", filename+".py")
         print(f"Running {file_path}...")
         result = subprocess.run(
             ["python", file_path], capture_output=True, text=True

@@ -1,5 +1,6 @@
 import requests
 import yfinance as yf
+import time
 
 
 class TickerTranslator:
@@ -13,6 +14,7 @@ class TickerTranslator:
 
     def _fetch_data(self):
         response = requests.get(self.url, headers=self.headers)
+
         response.raise_for_status()
         return response.json()
 
@@ -90,7 +92,7 @@ class TickerTranslator:
 
 def main(stocks):
     # Inputs
-    api_key = "20155216ZpCEwlxRBQEXFJzupJKWZkYRIQWnu"
+    api_key = "20155216ZufLSIrzHlOVJeEFkOcPcfZeEbjQi"
 
 
     # Initialize the translator
