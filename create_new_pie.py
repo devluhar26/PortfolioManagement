@@ -1,7 +1,6 @@
 import requests
 from streamlit.web.cli import main_hello
 
-shares={'APHl_EQ': 0.04936, 'DBOEY_US_EQ': 0.0938, 'SSREY_US_EQ': 0.06268, 'ACGL_US_EQ': 0.1156, 'NBIX_US_EQ': 0.07856, 'AAPL_US_EQ': 0.3, 'MSFT_US_EQ': 0.3}
 def main(shares):
     url = "https://demo.trading212.com/api/v0/equity/pies"
 
@@ -41,4 +40,3 @@ def main(shares):
         file = open("memory/pieinfo.txt", "w")
         file.write(str(data["settings"]["id"]))
         file.close()
-main(shares)

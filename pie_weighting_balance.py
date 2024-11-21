@@ -30,4 +30,3 @@ def main():
     dictionary = dict( zip(new_stock, percentages))
     print(dictionary)
     create_new_pie.main(dictionary)
-main()

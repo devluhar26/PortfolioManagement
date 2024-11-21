@@ -23,10 +23,15 @@ while True:
                 if int(current)>=int(freq[x]) :
                         file_scheduler.run_file(strat_name[x])
                         pie_weighting_balance.main()
+                        file = open("memory/" + strat_name[x] + "_clock.txt", "w")
+
                         file.write(str(0))
                 else:
                         file = open("memory/" + strat_name[x] + "_clock.txt", "w")
                         file.write(str(int(current)+1))
                         file.close()
         except:
-                file.write(str(0))
+            file = open("memory/" + strat_name[x] + "_clock.txt", "w")
+
+            file.write(str(0))
+
