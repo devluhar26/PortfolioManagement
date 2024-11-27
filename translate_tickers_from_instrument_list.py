@@ -1,5 +1,6 @@
 import requests
 import yfinance as yf
+import time
 
 
 class TickerTranslator:
@@ -13,6 +14,7 @@ class TickerTranslator:
 
     def _fetch_data(self):
         response = requests.get(self.url, headers=self.headers)
+
         response.raise_for_status()
         return response.json()
 
@@ -44,7 +46,7 @@ class TickerTranslator:
             return self._resolve_multiple_matches(stock, matches)
         else:
             print(f"No match found for {stock}")
-            return ""
+            return stock
 
     def _search_by_short_name(self, stock):
         matches = [item for item in self.data if item["shortName"] == stock]
@@ -56,7 +58,7 @@ class TickerTranslator:
             return self._resolve_multiple_matches(stock, matches)
         else:
             print(f"No match found for {stock}")
-            return ""
+            return stock
 
     def _resolve_multiple_matches(self, stock, matches):
         print(f"Multiple matches found for {stock}:")
@@ -85,17 +87,18 @@ class TickerTranslator:
 
         print("\nSelected ISINs:")
         print(self.selected_isin)
+        return self.selected_isin
 
 
-if __name__ == "__main__":
+def main(stocks):
     # Inputs
-    api_key = "20155216ZpCEwlxRBQEXFJzupJKWZkYRIQWnu"
-    stocks = ['APH', 'DBOEY', 'SSREY', 'ACGL', 'CICOF', 'KSPI', 'MKL', 'EVVTY',
-              'MOH', 'UTHR', 'SMCI', 'GMAB', 'SN', 'NBIX']
+    api_key = "20155216ZufLSIrzHlOVJeEFkOcPcfZeEbjQi"
+
 
     # Initialize the translator
     translator = TickerTranslator(api_key, stocks)
 
     # Translate tickers and print results
     selected_tickers = translator.translate_tickers()
-    translator.print_results()
+    isin=translator.print_results()
+    return isin
