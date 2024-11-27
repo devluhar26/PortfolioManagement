@@ -263,7 +263,7 @@ class PortfolioPDF:
         self.add_section_title(title)
         if os.path.exists(chart_path):
             self.pdf.image(chart_path, x=10, y=None, w=190)
-            self.pdf.ln(85)  # Adjust based on image height
+            self.pdf.ln(85)  # Adjust based on image height for each image etc
         else:
             self.add_text(f"Chart not found: {chart_path}")
 
