@@ -9,9 +9,9 @@ A smart, adaptive tool for **Trading 212** users that automates portfolio rebala
 Between **September 2024 and present**, this system has been evolving to deliver:
 
 - **Dynamic Rebalancing:** Maintains target “pie” allocations by continuously adjusting positions.
-- **Smart Capital Allocation:** Responds to real-time market conditions—markets shifting? The system reallocates accordingly.
+- **Smart Capital Allocation:** Responds to real-time market conditions, markets shifting? The system reallocates accordingly.
 - **DeepSeek R1 Model:** Analyzes your past trades and parses recent market news to spot similar historical behavior and forecast what's next.
-- **Fully Automated:** No manual input required once it’s deployed—just sit back and let it run.
+- **Fully Automated:** No manual input required once it’s deployed, just sit back and let it run.
 
 ---
 
