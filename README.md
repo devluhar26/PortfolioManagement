@@ -1,6 +1,6 @@
 # 🎯 Automated Portfolio Management System
 
-A smart, adaptive tool for **Trading 212** users that automates portfolio rebalancing and capital allocation—no more manual oversight. Powered by Python and an integrated DeepSeek R1 AI engine, it analyzes performance and news, identifies historical patterns, and adjusts investments in real time.
+A smart, adaptive tool for **Trading 212** users that automates portfolio rebalancing and capital allocation, no more manual oversight. Powered by Python and an integrated DeepSeek R1 AI engine, it analyzes performance and news, identifies historical patterns, and adjusts investments in real time.
 
 ---
 
