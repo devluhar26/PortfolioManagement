@@ -11,7 +11,7 @@ def main(shares):
       "icon": "Home",
 
       "instrumentShares":shares,
-      "name": "string1"
+      "name": "portfolio"
     }
 
     headers = {

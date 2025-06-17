@@ -1,32 +1,50 @@
-import ast
 import sqlite3
 import os
-import create_new_pie
-import numpy as np
 
-import translate_tickers_from_instrument_list
+import numpy as np
+import requests
+
+
+api_key="20155216ZtEFPdQFOwcBowmWKInkJyTKzRiLL"
+
 def main():
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    strat_db_path = os.path.join(BASE_DIR, "strategies.db")
+    strat_db_path = os.path.join(BASE_DIR, "strategy.db")
     conn_strat = sqlite3.connect(strat_db_path, check_same_thread=False)
     curs_strat = conn_strat.cursor()
 
-    weighting=[row[0] for row in curs_strat.execute(f"SELECT weighting FROM strat").fetchall()]
-    strat_name=[row[0] for row in curs_strat.execute(f"SELECT strategy_name FROM strat").fetchall()]
-    stocks = []
-    percentages = []
+    stock=[row[0] for row in curs_strat.execute(f"SELECT stock_name FROM portfolio").fetchall()]
+    quantity=[row[0] for row in curs_strat.execute(f"SELECT quantity FROM portfolio").fetchall()]
     sum_=0
-    for x in range(len(weighting)):
+    for x in quantity:
+        sum_+=x
 
-        weight=weighting[x]/100
-        file = open("memory/" + strat_name[x] + ".txt", "r")
-        array=ast.literal_eval(file.read().strip())
-        for x in array:
-            stocks.append(x[0])
-            percentages.append(round((x[1]*weight)/100,5))
+    percentages=[round((x/sum_),5) for x in quantity]
+    shares = dict( zip(stock, percentages))
+    print(shares)
 
-        file.close()
-    new_stock=translate_tickers_from_instrument_list.main(stocks)
-    dictionary = dict( zip(new_stock, percentages))
-    print(dictionary)
-    create_new_pie.main(dictionary)
+    url = "https://demo.trading212.com/api/v0/equity/pies"
+
+    payload = {
+      "dividendCashAction": "REINVEST",
+      "endDate": "2019-08-24T14:15:22Z",
+      "goal": 0,
+      "icon": "Home",
+
+      "instrumentShares":shares,
+      "name": "portfolio"
+    }
+
+    headers = {
+      "Content-Type": "application/json",
+      "Authorization": api_key
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+
+    data = response.json()
+    print(data)
+
+
+if __name__ == '__main__':
+    main()

@@ -291,8 +291,6 @@ if __name__ == "__main__":
         portfolio_df["Stock Name"] = portfolio_df["Ticker"]
 
         visualization = DataVisualization(portfolio_df)
-
-
         visualization.portfolio_performance_plotly()
         visualization.profit_loss_by_investment()
         visualization.portfolio_allocation_pie()
